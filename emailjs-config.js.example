@@ -1,0 +1,13 @@
+/**
+ * Exemple de configuration EmailJS
+ * 
+ * Copier ce fichier en emailjs-config.js et remplir vos vraies valeurs
+ */
+
+const EMAILJS_CONFIG = {
+  publicKey: 'your_public_key_here',
+  serviceId: 'service_xxxxxxxxx',
+  templateAdminId: 'template_admin_recruitment',
+  templateUserConfirmId: 'template_candidate_confirmation',
+  adminEmail: 'recrutement@petroci.ci'
+};

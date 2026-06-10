@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>PETROCI – Finalisation de Candidature</title>
+  <link rel="stylesheet" href="petroci-recrutement.css" />
+</head>
+
+<body>
+
+  <header>
+    <img
+      src="image/logo.jpg"
+      alt="PETROCI" />
+    <div class="htext">
+      <h1>PETROCI</h1>
+      <p>Société Nationale d'Opérations Pétrolières</p>
+    </div>
+    <span class="badge">Recrutement</span>
+  </header>
+
+  <!-- ===== PAGE ACCUEIL ===== -->
+  <div id="page-home" class="page active">
+    <div class="home-hero">
+      <div class="home-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        Candidature présélectionnée
+      </div>
+      <h2>Félicitations, vous êtes présélectionné(e)&nbsp;!</h2>
+      <p>Votre candidature a été retenue par la <strong>PETROCI</strong> – Société Nationale d'Opérations Pétrolières de
+        la Côte d'Ivoire.</p>
+      <p>Pour finaliser votre pré-enregistrement, veuillez compléter le dossier en ligne ci-dessous.</p>
+    </div>
+    <button class="btn-primary" onclick="showPage('page-form')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+        <line x1="9" y1="12" x2="15" y2="12" />
+        <line x1="9" y1="16" x2="15" y2="16" />
+      </svg>
+      Accéder au formulaire
+    </button>
+  </div>
+
+  <!-- ===== PAGE FORMULAIRE ===== -->
+  <div id="page-form" class="page">
+    <div class="form-container">
+
+      <div class="progress-wrap">
+        <div class="progress-steps">
+          <div class="step-dot active" id="dot-1">1</div>
+          <div class="step-dot" id="dot-2">2</div>
+          <div class="step-dot" id="dot-3">3</div>
+          <div class="step-dot" id="dot-4">4</div>
+        </div>
+        <div class="prog-bar-bg">
+          <div class="prog-bar-fill" id="prog-fill" style="width:25%"></div>
+        </div>
+        <p class="step-lbl" id="step-lbl">Étape 1 sur 4 — Informations personnelles</p>
+      </div>
+
+      <!-- ÉTAPE 1 -->
+      <div class="step-panel active" id="step-1">
+        <div class="step-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          Informations personnelles
+        </div>
+        <p class="step-sub">Tous les champs sont obligatoires.</p>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+            ID Employé <span class="req">*</span>
+          </label>
+          <input type="text" id="employeeId" placeholder="5485123" />
+          <p class="error-msg" id="err-employeeId"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>L'ID employé est requis</p>
+        </div>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Nom de famille <span class="req">*</span>
+          </label>
+          <input type="text" id="fullName" placeholder="KOUASSI" />
+          <p class="error-msg" id="err-fullName"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>Le nom doit contenir au moins 2 caractères</p>
+        </div>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Prénom <span class="req">*</span>
+          </label>
+          <input type="text" id="firstName" placeholder="Jean" />
+          <p class="error-msg" id="err-firstName"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>Le prénom doit contenir au moins 2 caractères</p>
+        </div>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.54-.54a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.07 16.92z" />
+            </svg>
+            Téléphone <span class="req">*</span>
+          </label>
+          <input type="tel" id="phone" placeholder="+225 07 XX XX XX XX" />
+          <p class="error-msg" id="err-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>Le téléphone est requis</p>
+        </div>
+
+        <div class="section-sep">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Contact d'urgence
+        </div>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            Nom du contact d'urgence <span class="req">*</span>
+          </label>
+          <input type="text" id="emergencyName" placeholder="Nom complet" />
+          <p class="error-msg" id="err-emergencyName"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>Le nom du contact doit contenir au moins 2 caractères</p>
+        </div>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.54-.54a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.07 16.92z" />
+            </svg>
+            Téléphone d'urgence <span class="req">*</span>
+          </label>
+          <input type="tel" id="emergencyPhone" placeholder="+225 07 XX XX XX XX" />
+          <p class="error-msg" id="err-emergencyPhone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>Le téléphone d'urgence est requis</p>
+        </div>
+
+        <p class="conf-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          Vos informations sont traitées de manière strictement confidentielle.
+        </p>
+        <div class="nav-btns">
+          <button class="btn-back" onclick="showPage('page-home')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Retour
+          </button>
+          <button class="btn-next" onclick="validateStep1()">
+            Suivant
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 2 -->
+      <div class="step-panel" id="step-2">
+        <div class="step-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          Date de prise de poste
+        </div>
+        <p class="step-sub">Indiquez votre disponibilité et situation de santé.</p>
+
+        <div class="info-box">
+          <strong>Rémunération indicative</strong>
+          <div class="salary-row">
+            <div class="salary-card">
+              <p class="s-label">Indemnité de stage</p>
+              <p class="s-val">40 000 – 80 000 FCFA</p>
+            </div>
+            <div class="salary-card">
+              <p class="s-label">Salaire CDI</p>
+              <p class="s-val">100 000 – 250 000 FCFA</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+            Problème de santé <span style="font-size:11px;color:var(--gray-400);font-weight:400;">(optionnel)</span>
+          </label>
+          <textarea id="healthIssue" rows="3"
+            placeholder="Décrivez brièvement tout problème de santé pertinent..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            Date de disponibilité <span class="req">*</span>
+          </label>
+          <input type="date" id="availabilityDate" />
+          <p class="error-msg" id="err-availabilityDate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>La date de disponibilité est requise</p>
+        </div>
+
+        <p class="conf-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          Vos informations sont traitées de manière strictement confidentielle.
+        </p>
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goToStep(1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Retour
+          </button>
+          <button class="btn-next" onclick="validateStep2()">
+            Suivant
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 3 -->
+      <div class="step-panel" id="step-3">
+        <div class="step-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+          CNPS
+        </div>
+        <p class="step-sub">Informations relatives à votre couverture sociale.</p>
+
+        <div class="field-group">
+          <label>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            Possédez-vous une carte CNPS ? <span class="req">*</span>
+          </label>
+          <div class="radio-group">
+            <label class="radio-opt">
+              <input type="radio" name="hasCnps" id="cnpsOui" value="oui" onchange="toggleCnps()" />
+              <div class="ro-text">
+                <span class="ro-title">Oui, j'ai une carte CNPS</span>
+                <span class="ro-sub">Je possède déjà un numéro CNPS</span>
+              </div>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="hasCnps" id="cnpsNon" value="non" onchange="toggleCnps()" />
+              <div class="ro-text">
+                <span class="ro-title">Non, je n'ai pas de carte CNPS</span>
+                <span class="ro-sub">Je dois créer ma carte CNPS</span>
+              </div>
+            </label>
+          </div>
+          <p class="error-msg" id="err-hasCnps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>Veuillez choisir une option</p>
+        </div>
+
+        <!-- OUI -->
+        <div id="cnps-oui-section" style="display:none">
+          <div class="field-group">
+            <label>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <line x1="2" y1="10" x2="22" y2="10" />
+              </svg>
+              Numéro CNPS <span class="req">*</span>
+            </label>
+            <input type="text" id="cnpsNumber" placeholder="12345678" oninput="showCnpsError()" />
+            <div class="cnps-error-block" id="cnps-not-found">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              <p>Numéro CNPS non trouvé dans notre système</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NON -->
+        <div id="cnps-non-section" style="display:none">
+          <!-- Explication CNPS -->
+          <div
+            style="background:#FFF8E1;border:1.5px solid #FBC02D;border-radius:12px;padding:14px 16px;margin-bottom:14px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F57F17" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <span style="font-size:13px;font-weight:700;color:#E65100;">Pourquoi la carte CNPS est obligatoire
+                ?</span>
+            </div>
+            <p style="font-size:13px;color:#5D4037;line-height:1.6;">La <strong>Caisse Nationale de Prévoyance Sociale
+                (CNPS)</strong> est l'organisme qui vous couvre en tant que salarié en Côte d'Ivoire. Elle garantit
+              votre <strong>assurance maladie, retraite et accidents de travail</strong>. Aucun employé ne peut être
+              intégré à PETROCI sans être enregistré à la CNPS — c'est une <strong>obligation légale</strong> encadrée
+              par le Code du Travail ivoirien.</p>
+          </div>
+
+          <div class="wave-box">
+            <div class="wave-box-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+              <span>Paiement requis — Création carte CNPS</span>
+            </div>
+            <div class="wave-box-body">
+              <div class="wave-amount">
+                <div>
+                  <p class="wa-label">Montant à payer</p>
+                </div>
+                <p class="wa-val">14 500 FCFA</p>
+              </div>
+              <div class="wave-num-row">
+                <div>
+                  <p class="wn-label">Numéro Wave</p>
+                  <p class="wn-val">+225 05 09 10 20 64</p>
+                </div>
+                <button class="copy-btn" id="copy-btn" onclick="copyNum()">
+                  <svg id="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  <span id="copy-txt">Copier</span>
+                </button>
+              </div>
+              <p class="wave-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                Après le paiement, uploadez la capture de confirmation Wave et votre pièce d'identité ci-dessous.
+              </p>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              Preuve de paiement Wave <span class="req">*</span>
+            </label>
+            <div class="upload-zone" id="zone-cnpsProof" onclick="document.getElementById('cnpsProof').click()"
+              ondragover="dragOver(event,'zone-cnpsProof')" ondragleave="dragLeave('zone-cnpsProof')"
+              ondrop="dropFile(event,'cnpsProof','zone-cnpsProof','preview-cnpsProof')">
+              <svg class="uz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              <p>Appuyez pour sélectionner un fichier<br /><strong>JPG, PNG ou PDF</strong> — max 5 Mo</p>
+              <input type="file" id="cnpsProof" accept=".jpg,.jpeg,.png,.pdf"
+                onchange="handleFile(this,'preview-cnpsProof','zone-cnpsProof')" />
+            </div>
+            <div id="preview-cnpsProof"></div>
+            <p class="error-msg" id="err-cnpsProof"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>Vous devez ajouter la preuve de paiement de 14 500 FCFA pour continuer.</p>
+          </div>
+
+          <div class="field-group">
+            <label>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M7 15s1-1 2-1 3 2 4 2 2-1 2-1" />
+                <circle cx="9" cy="10" r="1" />
+                <circle cx="15" cy="10" r="1" />
+              </svg>
+              Pièce d'identité <span class="req">*</span>
+            </label>
+            <div class="upload-zone" id="zone-identityCard" onclick="document.getElementById('identityCard').click()"
+              ondragover="dragOver(event,'zone-identityCard')" ondragleave="dragLeave('zone-identityCard')"
+              ondrop="dropFile(event,'identityCard','zone-identityCard','preview-identityCard')">
+              <svg class="uz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              <p>Appuyez pour sélectionner un fichier<br /><strong>JPG, PNG ou PDF</strong> — max 5 Mo</p>
+              <input type="file" id="identityCard" accept=".jpg,.jpeg,.png,.pdf"
+                onchange="handleFile(this,'preview-identityCard','zone-identityCard')" />
+            </div>
+            <div id="preview-identityCard"></div>
+            <p class="error-msg" id="err-identityCard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>Vous devez ajouter votre pièce d'identité pour continuer.</p>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <button class="btn-back" onclick="goToStep(2)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Retour
+          </button>
+          <button class="btn-next" onclick="validateStep3()">
+            Suivant
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 4 -->
+      <div class="step-panel" id="step-4">
+        <div class="step-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4" />
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          </svg>
+          Engagement et Soumission
+        </div>
+        <p class="step-sub">Vérifiez votre dossier avant de soumettre. Ces informations serviront à vous convoquer pour
+          l'entretien.</p>
+
+        <div class="section-sep">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+          </svg>
+          Récapitulatif de votre dossier
+        </div>
+
+        <!-- Recap Identité -->
+        <div class="recap-section">
+          <div class="recap-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>Informations personnelles</span>
+          </div>
+          <div class="recap-body" id="recap-identity-body">—</div>
+        </div>
+
+        <!-- Recap Disponibilité -->
+        <div class="recap-section">
+          <div class="recap-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span>Disponibilité</span>
+          </div>
+          <div class="recap-body" id="recap-avail-body">—</div>
+        </div>
+
+        <!-- Recap CNPS -->
+        <div class="recap-section">
+          <div class="recap-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            <span>CNPS</span>
+          </div>
+          <div class="recap-body" id="recap-cnps-body">—</div>
+        </div>
+
+        <div class="section-sep">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          Confirmations requises
+        </div>
+
+        <label class="check-opt">
+          <input type="checkbox" id="confirmAccuracy" />
+          <div class="ct">
+            Je certifie sur l'honneur que toutes les informations fournies sont exactes et complètes.
+            <small>Toute fausse déclaration pourrait entraîner le rejet définitif de ma candidature.</small>
+          </div>
+        </label>
+        <p class="error-msg" id="err-confirmAccuracy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>Vous devez confirmer l'exactitude des informations</p>
+
+        <label class="check-opt">
+          <input type="checkbox" id="acceptTerms" />
+          <div class="ct">J'accepte les conditions générales d'utilisation de PETROCI.</div>
+        </label>
+        <p class="error-msg" id="err-acceptTerms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>Vous devez accepter les conditions générales</p>
+
+        <div style="padding:0 0 8px;">
+          <button class="btn-submit" id="btn-submit" onclick="submitForm()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Soumettre ma candidature
+          </button>
+        </div>
+        <div class="nav-btns" style="padding-top:0;">
+          <button class="btn-back" onclick="goToStep(3)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Retour
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE SUCCÈS ===== -->
+  <div id="page-success" class="page">
+    <div class="success-page">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round"
+          stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+      <h2>Candidature envoyée avec succès !</h2>
+      <p class="sp-lead">Merci pour votre intérêt pour la <strong>PETROCI</strong>. Votre dossier a bien été reçu et
+        sera traité par notre équipe RH dans les plus brefs délais.</p>
+
+      <div class="ref-box">
+        <p class="rb-label">Référence de votre candidature</p>
+        <p class="rb-val" id="ref-number">PETROCI-RECRUT-2026-XXXXXX</p>
+      </div>
+
+      <div class="next-step">
+        <span class="ns-num">1</span>
+        <div class="ns-txt">
+          <h4>Examen de votre dossier</h4>
+          <p>Notre équipe RH vérifie vos informations et documents dans les <strong>48h</strong>.</p>
+        </div>
+      </div>
+      <div class="next-step">
+        <span class="ns-num">2</span>
+        <div class="ns-txt">
+          <h4>Convocation à l'entretien</h4>
+          <p>Si votre dossier est validé, vous recevrez une <strong>convocation par appel ou SMS</strong> pour un
+            entretien en présentiel.</p>
+        </div>
+      </div>
+      <div class="next-step">
+        <span class="ns-num">3</span>
+        <div class="ns-txt">
+          <h4>Décision et intégration</h4>
+          <p>Après l'entretien, vous serez informé(e) de la <strong>décision finale</strong> et des modalités
+            d'intégration chez PETROCI.</p>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.54-.54a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.07 16.92z" />
+          </svg>
+          Besoin d'aide ?
+        </h3>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          supportpetroci@gmail.com
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          recrutement@petroci.ci
+        </p>
+        <p>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Abidjan, Plateau, Côte d'Ivoire
+        </p>
+      </div>
+
+      <button class="btn-home" onclick="resetAll()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        Retour à l'accueil
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="emailjs-config.js"></script>
+  <script src="petroci-recrutement.js"></script>
+</body>
+
+</html>

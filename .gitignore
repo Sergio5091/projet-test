@@ -1,0 +1,15 @@
+# Configuration locale - Ne pas committer
+emailjs-config.js
+.env
+.env.local
+.DS_Store
+node_modules/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Fichiers temporaires
+*.log
+*.tmp
