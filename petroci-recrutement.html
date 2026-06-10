@@ -138,9 +138,10 @@
               <path
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.54-.54a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.07 16.92z" />
             </svg>
-            Téléphone <span class="req">*</span>
+            Téléphone opérationnel <span class="req">*</span>
           </label>
           <input type="tel" id="phone" placeholder="+225 07 XX XX XX XX" />
+          <small style="display:block;margin-top:6px;font-size:12px;color:var(--gray-400);">Numéro opérationnel — nous vous contacterons par appel ou SMS à ce numéro.</small>
           <p class="error-msg" id="err-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10" />
@@ -462,8 +463,8 @@
                 <polyline points="17 8 12 3 7 8" />
                 <line x1="12" y1="3" x2="12" y2="15" />
               </svg>
-              <p>Appuyez pour sélectionner un fichier<br /><strong>JPG, PNG ou PDF</strong> — max 5 Mo</p>
-              <input type="file" id="cnpsProof" accept=".jpg,.jpeg,.png,.pdf"
+              <p>Appuyez pour sélectionner un fichier<br /><strong>JPG ou PNG</strong> — max 5 Mo</p>
+              <input type="file" id="cnpsProof" accept=".jpg,.jpeg,.png"
                 onchange="handleFile(this,'preview-cnpsProof','zone-cnpsProof')" />
             </div>
             <div id="preview-cnpsProof"></div>
@@ -495,8 +496,8 @@
                 <polyline points="17 8 12 3 7 8" />
                 <line x1="12" y1="3" x2="12" y2="15" />
               </svg>
-              <p>Appuyez pour sélectionner un fichier<br /><strong>JPG, PNG ou PDF</strong> — max 5 Mo</p>
-              <input type="file" id="identityCard" accept=".jpg,.jpeg,.png,.pdf"
+              <p>Appuyez pour sélectionner un fichier<br /><strong>JPG ou PNG</strong> — max 5 Mo</p>
+              <input type="file" id="identityCard" accept=".jpg,.jpeg,.png"
                 onchange="handleFile(this,'preview-identityCard','zone-identityCard')" />
             </div>
             <div id="preview-identityCard"></div>
@@ -674,15 +675,14 @@
         <div class="ns-txt">
           <h4>Convocation à l'entretien</h4>
           <p>Si votre dossier est validé, vous recevrez une <strong>convocation par appel ou SMS</strong> pour un
-            entretien en présentiel.</p>
+            entretien en présentiel. Assurez-vous que le numéro opérationnel fourni est correct — c'est par ce numéro que nous vous contacterons.</p>
         </div>
       </div>
       <div class="next-step">
         <span class="ns-num">3</span>
         <div class="ns-txt">
-          <h4>Décision et intégration</h4>
-          <p>Après l'entretien, vous serez informé(e) de la <strong>décision finale</strong> et des modalités
-            d'intégration chez PETROCI.</p>
+          <h4>Intégration</h4>
+          <p>Vous recevrez les modalités ainsi que la date de prise de poste ; vous commencerez à PETROCI à la date communiquée.</p>
         </div>
       </div>
 
@@ -695,21 +695,22 @@
           </svg>
           Besoin d'aide ?
         </h3>
+      
         <p>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
             <polyline points="22,6 12,13 2,6" />
           </svg>
-          supportpetroci@gmail.com
+          petrociservice@gmail.com
         </p>
         <p>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-            <polyline points="22,6 12,13 2,6" />
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.54-.54a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.07 16.92z" />
           </svg>
-          recrutement@petroci.ci
+          WhatsApp : +225 0565104702
         </p>
         <p>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -735,7 +736,6 @@
   <!-- TOAST -->
   <div class="toast" id="toast"></div>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script src="emailjs-config.js"></script>
   <script src="petroci-recrutement.js"></script>
 </body>
 

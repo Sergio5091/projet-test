@@ -1155,3 +1155,232 @@ header .badge {
 .toast.show {
   transform: translateX(-50%) translateY(0);
 }
+
+/* Additional desktop typography & spacing tweaks — do NOT change form field font sizes */
+@media (min-width: 992px) {
+  .home-hero h2 {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+
+  .home-hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 860px;
+    margin: 10px auto 0;
+  }
+
+  .home-badge {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .step-title {
+    font-size: 22px;
+  }
+
+  .step-sub {
+    font-size: 15px;
+  }
+
+  .step-lbl {
+    font-size: 13px;
+  }
+
+  .btn-primary,
+  .btn-next,
+  .btn-submit,
+  .btn-home {
+    font-size: 18px;
+    padding: 16px 26px;
+  }
+
+  .form-container {
+    margin-top: 32px;
+  }
+
+  .step-panel {
+    padding: 28px 0 0;
+  }
+
+  .progress-wrap {
+    padding: 20px;
+  }
+
+  .success-page h2 {
+    font-size: 28px;
+  }
+
+  .success-page>.sp-lead {
+    font-size: 15px;
+  }
+
+  .contact-box p {
+    font-size: 14px;
+  }
+}
+
+/* ===== DESKTOP / LARGE SCREENS ===== */
+@media (min-width: 992px) {
+  .home-hero {
+    padding: 64px 20px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+
+  .home-hero h2 {
+    font-size: 32px;
+  }
+
+  .btn-primary {
+    width: auto;
+    padding: 16px 28px;
+    margin: 32px auto 48px;
+    border-radius: 12px;
+    font-size: 17px;
+  }
+
+  header {
+    padding: 16px 36px;
+  }
+
+  header img {
+    height: 58px;
+  }
+
+  header .htext h1 {
+    font-size: 20px;
+  }
+
+  /* Center the whole form container under the progress steps */
+  .form-container {
+    max-width: 1100px;
+    margin: 24px auto;
+    display: block;
+    padding: 0 20px;
+  }
+
+  /* Steps bar stays full-width centered at top */
+  .form-container .progress-wrap {
+    position: sticky;
+    top: 28px;
+    padding: 18px;
+    max-width: 1100px;
+    margin: 0 auto 18px;
+    background: var(--white);
+  }
+
+  .progress-steps {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  /* Form panels centered below the steps */
+  .form-container .step-panel {
+    max-width: 820px;
+    margin: 0 auto;
+    padding-top: 8px;
+  }
+
+  /* Keep form fields left-aligned inside the centered panel */
+  .form-container .step-panel .field-group {
+    display: block;
+    text-align: left;
+    align-items: stretch;
+  }
+
+  .form-container .step-panel .field-group label {
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .form-container .step-panel .field-group input,
+  .form-container .step-panel .field-group textarea,
+  .form-container .step-panel .field-group select {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .form-container .step-panel .upload-zone,
+  .form-container .step-panel .file-preview,
+  .form-container .step-panel #preview-cnpsProof,
+  .form-container .step-panel #preview-identityCard {
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+
+  .form-container .step-panel .salary-row {
+    max-width: 100%;
+    margin: 0;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-container .step-panel .radio-group {
+    align-items: stretch;
+  }
+
+  .form-container .step-panel .radio-opt {
+    width: 100%;
+    margin: 0;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .form-container .step-panel .radio-opt .ro-text {
+    align-items: flex-start;
+  }
+
+  .form-container .step-panel .recap-row {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .step-panel {
+    padding: 22px 0 0;
+  }
+
+  .field-group input,
+  .field-group textarea {
+    max-width: 640px;
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  .step-title {
+    font-size: 20px;
+  }
+
+  .nav-btns {
+    justify-content: flex-end;
+    padding: 22px 0 10px;
+  }
+
+  .btn-back {
+    width: 150px;
+    flex: none;
+  }
+
+  .btn-next {
+    width: 220px;
+    flex: none;
+  }
+
+  .recap-body {
+    max-width: 640px;
+  }
+
+  .success-page {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 40px;
+  }
+
+  .ref-box {
+    text-align: left;
+    padding: 16px;
+  }
+}

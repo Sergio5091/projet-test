@@ -236,7 +236,7 @@ function dropFile(e, inputId, zoneId, previewId) {
 }
 
 function copyNum() {
-  navigator.clipboard.writeText('+22505091020 64').then(() => {
+  navigator.clipboard.writeText('+2250509102064').then(() => {
     const btn = document.getElementById('copy-btn');
     const txt = document.getElementById('copy-txt');
     const icon = document.getElementById('copy-icon');
