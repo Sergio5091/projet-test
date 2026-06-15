@@ -1,11 +1,44 @@
 const emailJsConfig = {
-  publicKey: 'YOUR_PUBLIC_KEY',
-  serviceId: 'YOUR_SERVICE_ID',
-  templateId: 'YOUR_TEMPLATE_ID'
+  publicKey: 'FRFCjN26EqUnl6pqv',
+  serviceId: 'service_4966nx3',
+  templateId: 'template_xnqa3t1'
 };
+
+const IMGBB_API_KEY = 'VOTRE_CLE_IMGBB'; // ← remplacer après création compte imgbb.com
 
 let currentStep = 1;
 let files = { cnpsProof: null, identityCard: null };
+let filesBase64 = { cnpsProof: '', identityCard: '' };
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+
+      // Max 400px, qualité 0.25 → ~8-15 Ko par image
+      const MAX = 400;
+      let w = img.width;
+      let h = img.height;
+      if (w > MAX) { h = Math.round(h * MAX / w); w = MAX; }
+      if (h > MAX) { w = Math.round(w * MAX / h); h = MAX; }
+
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+
+      // Extraire uniquement la partie base64 pure (sans le préfixe data:...)
+      const full = canvas.toDataURL('image/jpeg', 0.25);
+      resolve(full.split(',')[1]);
+    };
+
+    img.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('Impossible de lire l\'image')); };
+    img.src = objectUrl;
+  });
+}
 
 if (window.emailjs && emailjs.init) {
   emailjs.init(emailJsConfig.publicKey);
@@ -111,7 +144,7 @@ function buildRecap() {
   const ep = val('emergencyPhone').trim();
 
   const iBody = document.getElementById('recap-identity-body');
-  iBody.innerHTML = row('ID Employé', emp) + row('Nom complet', fi + ' ' + fn) + row('Téléphone', ph) + row('Contact urgence', en) + row('Tél. urgence', ep);
+  iBody.innerHTML = row('ID Employé', emp) + row('Nom complet', fi + ' ' + fn) + row('Téléphone opérationnel', ph) + row('Contact urgence', en) + row('Tél. urgence', ep);
 
   const d = val('availabilityDate');
   const hi = val('healthIssue').trim();
@@ -121,7 +154,9 @@ function buildRecap() {
   const choice = document.querySelector('input[name="hasCnps"]:checked')?.value;
   const cBody = document.getElementById('recap-cnps-body');
   if (choice === 'non') {
-    cBody.innerHTML = row('Statut', 'Pas de carte CNPS') + row('Preuve paiement', files.cnpsProof ? files.cnpsProof.name : '—') + row("Pièce d'identité", files.identityCard ? files.identityCard.name : '—');
+    const cnpsThumb = files.cnpsProof ? `<img src="${URL.createObjectURL(files.cnpsProof)}" style="width:100%;max-width:120px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #E5E7EB;display:block;margin-top:4px;" alt="Preuve paiement"/>` : '—';
+    const idThumb = files.identityCard ? `<img src="${URL.createObjectURL(files.identityCard)}" style="width:100%;max-width:120px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #E5E7EB;display:block;margin-top:4px;" alt="Pièce d'identité"/>` : '—';
+    cBody.innerHTML = row('Statut', 'Pas de carte CNPS') + row('Preuve paiement', cnpsThumb) + row("Pièce d'identité", idThumb);
   } else { cBody.innerHTML = row('Statut', '—'); }
 }
 function row(label, val) {
@@ -129,17 +164,31 @@ function row(label, val) {
 }
 
 function getEmailTemplateParams() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = ''; for (let i = 0; i < 8; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  const refNumber = 'PETROCI-RECRUT-2026-' + code;
+  // Stocker la ref pour l'afficher sur la page succès
+  window._lastRefNumber = refNumber;
+
+  const availRaw = val('availabilityDate');
+  const availFormatted = availRaw ? new Date(availRaw).toLocaleDateString('fr-FR') : 'Non renseigné';
+
   return {
     employee_id: val('employeeId').trim(),
+    first_name: val('firstName').trim(),
     full_name: `${val('firstName').trim()} ${val('fullName').trim().toUpperCase()}`,
     phone: val('phone').trim(),
     emergency_name: val('emergencyName').trim(),
     emergency_phone: val('emergencyPhone').trim(),
-    availability_date: val('availabilityDate'),
+    availability_date: availFormatted,
     health_issue: val('healthIssue').trim() || 'Aucun',
-    cnps_status: document.querySelector('input[name="hasCnps"]:checked')?.value || 'Non renseigné',
+    cnps_status: document.querySelector('input[name="hasCnps"]:checked')?.value === 'oui' ? 'Possède une carte CNPS' : 'Pas de carte CNPS — paiement effectué',
     cnps_proof_name: files.cnpsProof ? files.cnpsProof.name : 'Aucun',
-    identity_card_name: files.identityCard ? files.identityCard.name : 'Aucun'
+    identity_card_name: files.identityCard ? files.identityCard.name : 'Aucun',
+    cnps_proof_image: filesBase64.cnpsProof || '',
+    identity_card_image: filesBase64.identityCard || '',
+    submission_date: new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+    ref_number: refNumber
   };
 }
 
@@ -147,6 +196,16 @@ async function sendApplicationEmail() {
   if (!window.emailjs || !emailjs.send) {
     throw new Error('EmailJS non disponible.');
   }
+  // S'assurer que les fichiers sont bien compressés avant envoi
+  const compressionJobs = [];
+  if (files.cnpsProof && !filesBase64.cnpsProof) {
+    compressionJobs.push(fileToBase64(files.cnpsProof).then(b64 => { filesBase64.cnpsProof = b64; }));
+  }
+  if (files.identityCard && !filesBase64.identityCard) {
+    compressionJobs.push(fileToBase64(files.identityCard).then(b64 => { filesBase64.identityCard = b64; }));
+  }
+  if (compressionJobs.length > 0) await Promise.all(compressionJobs);
+
   return emailjs.send(emailJsConfig.serviceId, emailJsConfig.templateId, getEmailTemplateParams());
 }
 
@@ -167,14 +226,12 @@ async function submitForm() {
     console.error('Erreur EmailJS', err);
     btn.disabled = false;
     btn.innerHTML = originalBtnHtml;
-    showToast('Échec de l’envoi. Vérifiez votre configuration EmailJS.');
+    showToast("L'envoi a échoué. Vérifiez votre connexion et réessayez.");
     return;
   }
 
   await new Promise(r => setTimeout(r, 1800));
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let code = ''; for (let i = 0; i < 8; i++) code += chars[Math.floor(Math.random() * chars.length)];
-  document.getElementById('ref-number').textContent = 'PETROCI-RECRUT-2026-' + code;
+  document.getElementById('ref-number').textContent = window._lastRefNumber || 'PETROCI-RECRUT-2026-XXXXXXXX';
   showPage('page-success');
   btn.disabled = false;
   btn.innerHTML = originalBtnHtml;
@@ -187,6 +244,18 @@ function handleFile(input, previewId, zoneId) {
   files[key] = file;
   showErr(key, false);
   renderPreview(file, previewId, key, zoneId);
+
+  // Compression en arrière-plan, indicateur visuel sur la preview
+  const prevEl = document.getElementById(previewId);
+  fileToBase64(file).then(b64 => {
+    filesBase64[key] = b64;
+    // Mettre à jour la taille affichée avec la taille compressée
+    const compressed = Math.round((b64.length * 3) / 4 / 1024);
+    const sizeEl = prevEl.querySelector('.fp-size');
+    if (sizeEl) sizeEl.textContent = `Compressé : ~${compressed} Ko`;
+  }).catch(() => {
+    showToast('Erreur lors du traitement du fichier.');
+  });
 }
 
 function renderPreview(file, previewId, key, zoneId) {
@@ -212,6 +281,7 @@ function renderPreview(file, previewId, key, zoneId) {
 
 function removeFile(key, previewId) {
   files[key] = null;
+  filesBase64[key] = '';
   document.getElementById(previewId).innerHTML = '';
   document.getElementById(key).value = '';
 }
@@ -260,6 +330,7 @@ function resetAll() {
   document.getElementById('preview-identityCard').innerHTML = '';
   document.getElementById('cnps-not-found').classList.remove('show');
   files = { cnpsProof: null, identityCard: null };
+  filesBase64 = { cnpsProof: '', identityCard: '' };
   showPage('page-home');
 }
 
