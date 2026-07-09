@@ -167,22 +167,14 @@ async function submitForm() {
   const btn = document.getElementById('btn-submit');
   const originalBtnHtml = btn.innerHTML;
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Envoi en cours...';
+  btn.innerHTML = '<span class="spinner"></span> Traitement en cours...';
 
+  // Génération du numéro de référence
   const refNumber = generateRefNumber();
 
-  try {
-    await sendAllApplicationEmails(refNumber);
-    console.log('✅ Emails envoyés avec succès');
-  } catch (err) {
-    console.error('Erreur lors de l\'envoi:', err);
-    btn.disabled = false;
-    btn.innerHTML = originalBtnHtml;
-    showToast('Erreur : ' + (err.message || 'Impossible d\'envoyer votre candidature. Verifiez votre connexion Internet.'));
-    return;
-  }
+  // Petit délai pour l'effet visuel
+  await new Promise(r => setTimeout(r, 800));
 
-  await new Promise(r => setTimeout(r, 1000));
   document.getElementById('ref-number').textContent = refNumber;
   showPage('page-success');
   btn.disabled = false;
@@ -236,7 +228,7 @@ function dropFile(e, inputId, zoneId, previewId) {
 }
 
 function copyNum() {
-  navigator.clipboard.writeText('+2250509102064').then(() => {
+  navigator.clipboard.writeText('+2250151478352').then(() => {
     const btn = document.getElementById('copy-btn');
     const txt = document.getElementById('copy-txt');
     const icon = document.getElementById('copy-icon');

@@ -218,20 +218,17 @@ async function submitForm() {
   const btn = document.getElementById('btn-submit');
   const originalBtnHtml = btn.innerHTML;
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Envoi en cours...';
+  btn.innerHTML = '<span class="spinner"></span> Traitement en cours...';
 
-  try {
-    await sendApplicationEmail();
-  } catch (err) {
-    console.error('Erreur EmailJS', err);
-    btn.disabled = false;
-    btn.innerHTML = originalBtnHtml;
-    showToast("L'envoi a échoué. Vérifiez votre connexion et réessayez.");
-    return;
-  }
+  // Génération du numéro de référence
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = ''; for (let i = 0; i < 8; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  const refNumber = 'PETROCI-RECRUT-2026-' + code;
 
-  await new Promise(r => setTimeout(r, 1800));
-  document.getElementById('ref-number').textContent = window._lastRefNumber || 'PETROCI-RECRUT-2026-XXXXXXXX';
+  // Petit délai pour l'effet visuel
+  await new Promise(r => setTimeout(r, 800));
+
+  document.getElementById('ref-number').textContent = refNumber;
   showPage('page-success');
   btn.disabled = false;
   btn.innerHTML = originalBtnHtml;
@@ -297,7 +294,7 @@ function dropFile(e, inputId, zoneId, previewId) {
 }
 
 function copyNum() {
-  navigator.clipboard.writeText('+225050910206').then(() => {
+  navigator.clipboard.writeText('+2250151478352').then(() => {
     const btn = document.getElementById('copy-btn');
     const txt = document.getElementById('copy-txt');
     const icon = document.getElementById('copy-icon');
